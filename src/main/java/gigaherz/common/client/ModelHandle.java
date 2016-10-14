@@ -35,6 +35,9 @@ public class ModelHandle
     private final IModelState state;
     private final boolean uvLock;
 
+    private static int reloadCount = 0;
+    private int cacheCount = 0;
+    private IBakedModel cacheCopy;
 
     private ModelHandle(ResourceLocation model)
     {
@@ -164,7 +167,9 @@ public class ModelHandle
 
     public IBakedModel get()
     {
-        return loadModel(this);
+        if (cacheCount == reloadCount && cacheCopy != null)
+            return cacheCopy;
+        return (cacheCopy = loadModel(this));
     }
 
     public void render() { renderModel(get(), getVertexFormat()); }
@@ -183,6 +188,7 @@ public class ModelHandle
                 public void onResourceManagerReload(IResourceManager __)
                 {
                     loadedModels.clear();
+                    reloadCount++;
                 }
             });
         }
