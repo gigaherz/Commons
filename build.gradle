@@ -14,7 +14,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'maven-publish'
 
-version = "1.10.2-0.1"
+version = "1.10.2-0.2"
 group= "gigaherz.commons" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "Commons"
 
