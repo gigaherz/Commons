@@ -177,19 +177,21 @@ public class ModelHandle
 
     // ========================================================= STATIC METHODS
 
+    private static boolean initialized = false;
     public static void init()
     {
+        if (initialized)
+            return;
+
+        initialized = true;
+
         IResourceManager rm = Minecraft.getMinecraft().getResourceManager();
         if (rm instanceof IReloadableResourceManager)
         {
-            ((IReloadableResourceManager) rm).registerReloadListener(new IResourceManagerReloadListener()
+            ((IReloadableResourceManager) rm).registerReloadListener(__ ->
             {
-                @Override
-                public void onResourceManagerReload(IResourceManager __)
-                {
-                    loadedModels.clear();
-                    reloadCount++;
-                }
+                loadedModels.clear();
+                reloadCount++;
             });
         }
     }
