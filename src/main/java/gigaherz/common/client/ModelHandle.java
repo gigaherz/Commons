@@ -188,10 +188,14 @@ public class ModelHandle
         IResourceManager rm = Minecraft.getMinecraft().getResourceManager();
         if (rm instanceof IReloadableResourceManager)
         {
-            ((IReloadableResourceManager) rm).registerReloadListener(__ ->
+            ((IReloadableResourceManager) rm).registerReloadListener(new IResourceManagerReloadListener()
             {
-                loadedModels.clear();
-                reloadCount++;
+                @Override
+                public void onResourceManagerReload(IResourceManager __)
+                {
+                    loadedModels.clear();
+                    reloadCount++;
+                }
             });
         }
     }
