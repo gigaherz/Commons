@@ -15,12 +15,6 @@ public class RenamingHelper
 {
     private final Map<ResourceLocation, Item> upgradeItemNames = Maps.newHashMap();
     private final Map<ResourceLocation, Block> upgradeBlockNames = Maps.newHashMap();
-    private final Map<String, Class<? extends TileEntity>> nameToClassMap = ReflectionHelper.getPrivateValue(TileEntity.class, null, "field_145855_i", "nameToClassMap");
-
-    public void addAlternativeName(Class<? extends TileEntity> clazz, String altName)
-    {
-        nameToClassMap.put(altName, clazz);
-    }
 
     public void addAlternativeName(Item item, ResourceLocation altName)
     {
