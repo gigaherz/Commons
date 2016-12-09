@@ -2,7 +2,7 @@ package gigaherz.common.state;
 
 import gigaherz.common.ItemRegistered;
 
-public abstract class ItemStateful extends ItemRegistered
+public abstract class ItemStateful extends ItemRegistered implements StatefulItem
 {
     private IItemStateManager stateManager;
 
@@ -12,11 +12,13 @@ public abstract class ItemStateful extends ItemRegistered
         stateManager = createStateManager();
     }
 
+    @Override
     public IItemStateManager getStateManager()
     {
         return stateManager;
     }
 
+    @Override
     public IItemState getDefaultState()
     {
         return stateManager.getDefaultState();
@@ -29,3 +31,4 @@ public abstract class ItemStateful extends ItemRegistered
 
     public abstract IItemStateManager createStateManager();
 }
+

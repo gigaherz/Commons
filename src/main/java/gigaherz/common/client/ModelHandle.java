@@ -100,9 +100,12 @@ public class ModelHandle
             b.append("/");
             b.append(entry.getValue());
         }
-        b.append("//VF:"); b.append(vertexFormat.hashCode());
-        b.append("//S:" ); b.append((state != null) ? state.hashCode() : "n");
-        b.append("//UVL:" ); b.append(uvLock);
+        b.append("//VF:");
+        b.append(vertexFormat.hashCode());
+        b.append("//S:");
+        b.append((state != null) ? state.hashCode() : "n");
+        b.append("//UVL:");
+        b.append(uvLock);
         return b.toString();
     }
 
@@ -172,12 +175,20 @@ public class ModelHandle
         return (cacheCopy = loadModel(this));
     }
 
-    public void render() { renderModel(get(), getVertexFormat()); }
-    public void render(int color) { renderModel(get(), getVertexFormat(), color); }
+    public void render()
+    {
+        renderModel(get(), getVertexFormat());
+    }
+
+    public void render(int color)
+    {
+        renderModel(get(), getVertexFormat(), color);
+    }
 
     // ========================================================= STATIC METHODS
 
     private static boolean initialized = false;
+
     public static void init()
     {
         if (initialized)
