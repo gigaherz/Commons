@@ -15,10 +15,10 @@ group= "gigaherz.commons" // http://maven.apache.org/guides/mini/guide-naming-co
 archivesBaseName = "Commons-1.11.0"
 
 minecraft {
-    version = "1.11-13.19.0.2160"
+    version = "1.11-13.19.1.2189"
     runDir = "run"
 
-    mappings = "snapshot_20161126"
+    mappings = "snapshot_20161210"
 }
 
 compileJava {
