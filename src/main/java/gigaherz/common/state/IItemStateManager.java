@@ -26,9 +26,9 @@ public interface IItemStateManager
     static IItemState lookup(ItemStack stack)
     {
         Item item = stack.getItem();
-        if (!(item instanceof ItemStateful))
+        if (!(item instanceof StatefulItem))
             throw new IllegalArgumentException("The stack represents a non-stateful item");
-        IItemStateManager stateData = ((ItemStateful) item).getStateManager();
+        IItemStateManager stateData = ((StatefulItem) item).getStateManager();
         return stateData.get(stack.getMetadata());
     }
 }

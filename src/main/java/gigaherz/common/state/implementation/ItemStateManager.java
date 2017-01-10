@@ -1,18 +1,16 @@
 package gigaherz.common.state.implementation;
 
 import com.google.common.collect.ImmutableList;
-import gigaherz.common.state.IItemState;
-import gigaherz.common.state.IItemStateManager;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Maps;
+import gigaherz.common.state.*;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import org.apache.commons.lang3.ArrayUtils;
 
 import javax.annotation.Nullable;
-import java.util.ArrayDeque;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Deque;
+import java.util.*;
 
 public class ItemStateManager implements IItemStateManager
 {
@@ -23,7 +21,7 @@ public class ItemStateManager implements IItemStateManager
 
     private IItemState defaultState;
 
-    public ItemStateManager(Item item, IProperty... properties)
+    public <T extends Item & StatefulItem> ItemStateManager(T item, IProperty... properties)
     {
         this.item = item;
         this.properties = properties;
@@ -173,6 +171,21 @@ public class ItemStateManager implements IItemStateManager
         public ImmutableList<Comparable> getValues()
         {
             return ImmutableList.copyOf(values);
+        }
+
+        @Override
+        public ImmutableMap<IProperty<?>, Comparable<?>> getProperties()
+        {
+            ImmutableMap.Builder<IProperty<?>, Comparable<?>> b = new ImmutableMap.Builder<>();
+
+            for (int i = 0; i < properties.length; i++)
+            {
+                IProperty prop = properties[i];
+                Comparable value = values[i];
+                b.put(prop, value);
+            }
+
+            return b.build();
         }
 
         @SuppressWarnings("unchecked")
