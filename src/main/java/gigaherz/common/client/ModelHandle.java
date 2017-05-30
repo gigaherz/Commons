@@ -109,6 +109,10 @@ public class ModelHandle
         return b.toString();
     }
 
+    /**
+	 * @param texChannel : the texture channel, a.k.a the texture identifier name (example for blocks : "all", or "side")
+	 * @param resloc : the new texture location 
+	 */
     public ModelHandle replace(String texChannel, String resloc)
     {
         if (textureReplacements.containsKey(texChannel) && textureReplacements.get(texChannel).equals(resloc))
