@@ -10,15 +10,15 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'maven-publish'
 
-version = "0.5.1"
+version = "0.5.2"
 group= "gigaherz.commons" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "Commons-1.11.0"
+archivesBaseName = "Commons-1.11.2"
 
 minecraft {
-    version = "1.11-13.19.1.2189"
+    version = "1.11.2-13.20.0.2201"
     runDir = "run"
 
-    mappings = "snapshot_20161210"
+    mappings = "snapshot_20170128"
 }
 
 compileJava {
