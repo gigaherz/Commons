@@ -4,21 +4,21 @@ buildscript {
         maven { url = "http://files.minecraftforge.net/maven" }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
     }
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'maven-publish'
 
-version = "0.5.1"
+version = "0.6.2"
 group= "gigaherz.commons" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "Commons-1.11.0"
+archivesBaseName = "Commons-1.12.0"
 
 minecraft {
-    version = "1.11-13.19.1.2189"
+    version = "1.12-14.21.1.2387"
     runDir = "run"
 
-    mappings = "snapshot_20161210"
+    mappings = "snapshot_20170629"
 }
 
 compileJava {

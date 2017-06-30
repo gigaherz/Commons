@@ -47,7 +47,7 @@ public class StackRenderingHelper
     private static void renderItem(IBakedModel model, int color)
     {
         Tessellator tessellator = Tessellator.getInstance();
-        VertexBuffer worldrenderer = tessellator.getBuffer();
+        BufferBuilder worldrenderer = tessellator.getBuffer();
         worldrenderer.begin(GL11.GL_QUADS, DefaultVertexFormats.ITEM);
 
         for (BakedQuad bakedquad : model.getQuads(null, null, 0))
