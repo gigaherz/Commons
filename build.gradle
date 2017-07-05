@@ -10,7 +10,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'maven-publish'
 
-version = "0.6.2"
+version = "0.6.3"
 group= "gigaherz.commons" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "Commons-1.12.0"
 
@@ -20,6 +20,13 @@ minecraft {
 
     mappings = "snapshot_20170629"
 }
+
+jar {
+    manifest {
+        attributes("Maven-Artifact":"${project.group}:${project.archivesBaseName}:${project.version}")
+    }
+}
+
 
 compileJava {
     sourceCompatibility = 1.8
