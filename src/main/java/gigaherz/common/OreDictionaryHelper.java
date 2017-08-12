@@ -7,6 +7,9 @@ public class OreDictionaryHelper
 {
     public static boolean hasOreName(ItemStack stack, String oreName)
     {
+        if (stack.isEmpty())
+            return false;
+
         if (stack.getItem() == null)
         {
             return false;
